@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2011 Google Inc. All Rights Reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+
+    <title>Fusion Tables Layer Example: Heatmap</title>
+
+    <style>
+      html, body, #map-canvas {
+      	width: 90%; 
+        height: 90%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    
+
+    
+<script type="text/javascript"
+        src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+    <script>
+     function initialize() {  
+     	var tableId = '1lD6qfF3rmYE7NlB01pRV4VrqMHkZvAYk-B67-n-j';
+     	
+     	var map = new google.maps.Map(document.getElementById('map-canvas'), {
+     		center: new google.maps.LatLng(39, -95),
+     		zoom: 3
+     		});
+     		
+     		
+     		//event listener for heatmap checkbox
+     		google.maps.event.addDomListener(document.getElementById('heatmap'),
+            'click', function() {
+              var heatmap = document.getElementById('heatmap');
+              layer.setOptions({
+                heatmap: {
+                  enabled: heatmap.checked
+                }
+              });
+        });
+      
+
+        
+      
+      
+      //create new layer
+     	var layer = new google.maps.FusionTablesLayer();
+        filterMap(layer, tableId, map);
+
+		//event listeners for checkboxes
+        google.maps.event.addDomListener(document.getElementById('allegation'),
+            'click', function() {
+              filterMap(layer, tableId, map);
+        });
+
+        google.maps.event.addDomListener(document.getElementById('charged'),
+            'click', function() {
+              filterMap(layer, tableId, map);
+        });
+
+        google.maps.event.addDomListener(document.getElementById('conviction'),
+            'click', function() {
+              filterMap(layer, tableId, map);
+        });
+        
+        google.maps.event.addDomListener(document.getElementById('disciplinary'),
+            'click', function() {
+              filterMap(layer, tableId, map);
+        });
+        
+         
+        
+        google.maps.event.addDomListener(document.getElementById('fired'),
+            'click', function() {
+              filterMap(layer, tableId, map);
+        });
+        
+        google.maps.event.addDomListener(document.getElementById('investigation'),
+            'click', function() {
+              filterMap(layer, tableId, map);
+        });
+        
+        google.maps.event.addDomListener(document.getElementById('judgment'),
+            'click', function() {
+              filterMap(layer, tableId, map);
+        });
+        
+        google.maps.event.addDomListener(document.getElementById('lawsuit'),
+            'click', function() {
+              filterMap(layer, tableId, map);
+        });
+        
+        google.maps.event.addDomListener(document.getElementById('plead'),
+            'click', function() {
+              filterMap(layer, tableId, map);
+        });
+        
+        google.maps.event.addDomListener(document.getElementById('rehire'),
+            'click', function() {
+              filterMap(layer, tableId, map);
+        });       
+              
+        google.maps.event.addDomListener(document.getElementById('resignation'),
+            'click', function() {
+              filterMap(layer, tableId, map);
+        });
+        
+      google.maps.event.addDomListener(document.getElementById('sentenced'),
+            'click', function() {
+              filterMap(layer, tableId, map);
+        });
+        
+        
+       google.maps.event.addDomListener(document.getElementById('settlement'),
+            'click', function() {
+              filterMap(layer, tableId, map);
+        });
+        
+        google.maps.event.addDomListener(document.getElementById('trial'),
+            'click', function() {
+              filterMap(layer, tableId, map);
+        });
+        
+        
+     }
+     
+        
+    	// Filter the map based on checkbox selection.
+      function filterMap(layer, tableId, map) {
+        var where = generateWhere();
+
+        if (where) {
+          if (!layer.getMap()) {
+            layer.setMap(map);
+          }
+          layer.setOptions({
+            query: {
+              select: '\'Geocodable address\'',
+              from: tableId, 
+              where: where
+            }
+          });
+        } else {
+          layer.setMap(null);
+        }
+      }
+
+      // Generate a where clause from the checkboxes. If no boxes
+      // are checked, return an empty string.
+      function generateWhere() {
+        var filter = [];
+        var statuses = document.getElementsByName('status');
+        for (var i = 0, status; status = statuses[i]; i++) {
+          if (status.checked) {
+            var statusName = status.value.replace(/'/g, '\\\'');
+            filter.push("'" + statusName + "'");
+          }
+        }
+        var where = '';
+        if (filter.length) {
+          where = "'Status' IN (" + filter.join(',') + ')';
+        }
+        return where;
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+    <div>
+    	
+    	<input id="heatmap" type="checkbox" />
+      <label>Enable heatmap</label>
+      
+      
+      <input type="checkbox" checked="checked" name="status"
+          id="allegation" value="Allegation">
+      <label>Allegation</label>
+      
+      <input type="checkbox" checked="checked" name="status"
+          id="charged" value="Charged">
+      <label>Charged</label>
+      
+      <input type="checkbox" checked="checked" name="status"
+          id="conviction" value="Conviction">
+      <label>Conviction</label>
+      
+       <input type="checkbox" checked="checked" name="status"
+          id="disciplinary" value="Disciplinary">
+      <label>Disciplinary</label>
+     
+     <input type="checkbox" checked="checked" name="status"
+          id="fired" value="Fired">
+      <label>Fired</label>
+      
+      <input type="checkbox" checked="checked" name="status"
+          id="investigation" value="Investigation">
+      <label>Investigation</label>
+      
+      <input type="checkbox" checked="checked" name="status"
+          id="judgment" value="Judgment">
+      <label>Judgment</label>
+      
+      <input type="checkbox" checked="checked" name="status"
+          id="lawsuit" value="Lawsuit">
+      <label>Lawsuit</label>
+      
+      <input type="checkbox" checked="checked" name="status"
+          id="plead" value="Plead">
+      <label>Plead</label>
+      
+      <input type="checkbox" checked="checked" name="status"
+          id="rehire" value="Rehire">
+      <label>Rehire</label>
+      
+      <input type="checkbox" checked="checked" name="status"
+          id="resignation" value="Resignation">
+      <label>Resignation</label>
+      
+        <input type="checkbox" checked="checked" name="status"
+          id="sentenced" value="Sentenced">
+      <label>Sentenced</label>
+      
+        <input type="checkbox" checked="checked" name="status"
+          id="settlement" value="Settlement">
+      <label>Settlement</label>
+      
+        <input type="checkbox" checked="checked" name="status"
+          id="trial" value="Trial">
+      <label>Trial</label>
+      
+      
+      
+      
+    </div>
+  </body>
+</html>
