@@ -1,0 +1,239 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* To anyone reading this, I apologize for the messy code. To be fair it was 2 weeks before finals. */
+
+/* The menu was actually written to be a drop-down menu, but since there aren't enough sections for that, and the code was extremely messy, I removed that section of the code. Will code again if necessary. */
+body, html {
+	color:#000000;
+	background-color:#cbcbcb;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:10pt;
+	margin:0;
+	padding:0;
+	text-align:center;
+	height:100%;
+}
+
+
+a, a:active  {
+	text-decoration:none;
+	color:#1f7f7b;
+}
+
+a:hover, a:visited:hover{
+	color:#3fcec8;
+}
+
+hr {
+	border-color:#510e0e;
+}
+
+/*#layout {
+	background-color:#e0e0e0;
+	margin:0;
+	padding:0;
+	height:100%;
+}*/
+
+#layout {
+	min-height:100%;
+	/*height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -40px;
+	
+}
+
+#content {
+	min-height:80%;
+	height:auto;
+	padding:0px;
+	text-align:left;
+	margin:auto;
+	width:80%;
+	position:relative;
+	top:80px;
+	bottom: 80px;
+	background-color:#FFFFFF;
+	z-index:10;
+}
+
+#text {
+	color:#000000;
+	padding:50px;
+	z-index:5;
+}
+
+
+#menu { 
+	font-size:12pt;
+	margin:0;
+	padding:0;
+	background-color:#333;
+	position:absolute;
+	top:0px;
+	width:100%;
+	height:50px;
+    box-shadow: 2px 2px 2px 2px #888888;
+	z-index:7;
+}
+
+#menu ul {
+	color:#FFFFFF;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+#menu ul li{
+	line-height:50px;
+	text-align: center;
+	vertical-align: middle;
+	width:12%;
+	background:#5a5a5b;
+	position:relative;
+	float:right;
+	padding:0;
+	z-index:2;
+	height:50px;
+	display:block;
+}
+
+
+
+#container #menu ul li:hover, #container #menu ul li.over {
+	background:#00605c;
+	color:#FFFFFF;
+}
+
+#menu li ul {
+display:none;
+width:100%;
+position:absolute;
+top:100%;
+left:0;
+}
+
+#menu li>ul {
+top:auto;
+}
+
+#menu li:hover ul, #menu li.hover ul {
+display:block;
+background-color:#666;
+}
+
+#menu li:hover ul a {
+	color:#999;
+}
+#menu li:hover ul a:hover {
+	display:block;
+	color:#FFFFFF;
+	background-color:#999;
+}
+
+#menu li ul li {
+float:none;
+position:static;
+display:inline;
+}
+
+#menu a{
+	color:#999;
+	display:block;
+}
+
+#menu a:hover{
+	display:block;
+	color:#FFF;
+}
+
+#logo {
+	position:absolute;
+	margin:0;
+	padding:0;
+	width:53%;
+	top:0px;
+	left:0;
+	text-align:left;
+	text-indent:60px;
+	height:50px;
+	overflow:visible;
+	background:url("logo_2.png") no-repeat;
+	background-color:#5a5a5b;
+	background-position:left;
+	z-index:8;
+}
+
+#logo a {
+	width:400px;
+	z-index:-1;
+	display:block;
+	line-height:50px;
+	vertical-align:middle;
+	text-align:left;
+	left:40px;
+	color: rgba(0,0,0,0);
+	font-size:14pt;
+}
+
+#logo a:hover {
+	color: rgba(0,0,0,0);
+}
+
+
+
+
+#disclaimer {
+	z-index:6;
+	vertical-align: middle;
+	line-height:40px;
+	color:#FFFFFF;
+	height:40px;
+	text-align:center;
+	width:100%;
+	bottom:0px;
+	position:absolute;
+	background-color:#333;
+	background-color: rgba(0,0,0,0.7);
+}
+
+
+#push {
+	/*display:block;*/
+	height:50px;
+}
+
+#mapoption {
+	z-index:14;
+	display:block;
+	background-color:#333;
+	background-color: rgba(0,0,0,0.7);
+	position:absolute;
+	color:#FFFFFF;
+	float:right;
+	right:10px;
+	padding:10px;
+	text-align:left;
+	height:auto;
+	list-style-type:None;
+	width:120px;
+	top:25%;
+}
+
+#map-canvas {
+	position:absolute;
+	top:50px;
+      	width: 100%; 
+        height:100%;
+        padding: 0px
+      }
+
+
+
+
+
+
+
+
+
