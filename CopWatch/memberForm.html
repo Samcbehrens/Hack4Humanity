@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+	<head>
+		<script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+		<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+		<link rel="stylesheet" type="text/css" href="/resources/tutorial/css/example.css">
+	</head>
+	<body>
+
+		<div class="example-chat l-demo-container">
+			<header>
+				Firebase Chat Demo
+			</header>
+
+			<div class='example-chat-toolbar'>
+				<label for="name">Username:</label>
+				<input type='text' id='nameInput' placeholder='enter a username'>
+				<br>
+				<label for="password">Password:</label>
+				<input type='text' id='passwordInput' placeholder='enter a password'>
+				<br>
+				<label for="email">Email:</label>
+				<input type='text' id='emailInput' placeholder='enter your email'>
+				<br>
+				<label for="phone">Phone:</label>
+				<input type='text' id='phoneInput' placeholder='enter your phone number'>
+				<br>
+				
+				<label for="facebookName">Facebook:</label>
+				<input type='text' id='facebookInput' placeholder='facebook group url'>
+				<br>
+				<label for="instagramName">Instagram:</label>
+				<input type='text' id='instagramInput' placeholder='instagram url'>
+				<br>
+				<label for="twitterName">Twitter:</label>
+				<input type='text' id='twitterInput' placeholder='twitter url'>
+			</div>
+
+			<footer>
+				<button onclick="submitOrganizerForm()">
+					Submit
+				</button>
+			</footer>
+		</div>
+		<script>
+			// CREATE A REFERENCE TO FIREBASE
+			var messagesRef = new Firebase('https://policingmember.firebaseIO.com');
+
+			// REGISTER DOM ELEMENTS
+			var usernameField = $('#nameInput');
+			var emailField = $('#emailInput');
+			var phoneField = $('#phoneInput');
+
+			var passwordField = $('#passwordInput');
+
+			var facebookField = $('#facebookInput');
+			var instagramField = $('#instagramInput');
+			var twitterField = $('#twitterInput');
+
+
+			// LISTEN FOR BUTTONCLICK EVENT
+			function submitOrganizerForm() {
+
+				//FIELD VALUES
+				var username = usernameField.val();
+				var password = passwordField.val();
+				var emailAddr = emailField.val();
+				var phoneNumber = phoneField.val();
+				var fbAddr = facebookField.val();
+				var instagramAddr = instagramField.val();
+				var twitterAddr = twitterField.val();
+
+				//SAVE DATA TO FIREBASE
+				messagesRef.push({
+					name : username,
+					password : password,
+					email : emailAddr,
+					phone : phoneNumber,
+					fb : fbAddr,
+					instagram : instagramAddr,
+					twitter : twitterAddr
+
+				});
+			};
+
+		</script>
+	</body>
+</html>
