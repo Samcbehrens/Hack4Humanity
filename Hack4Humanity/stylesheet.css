@@ -1,0 +1,353 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* To anyone reading this, I apologize for the messy code. To be fair it was 2 weeks before finals. */
+
+/* The menu was actually written to be a drop-down menu, but since there aren't enough sections for that, and the code was extremely messy, I removed that section of the code. Will code again if necessary. */
+body, html {
+	color:#000000;
+	background-color:#cbcbcb;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:10pt;
+	margin:0;
+	padding:0;
+	text-align:center;
+	height:100%;
+}
+
+
+a, a:active  {
+	text-decoration:none;
+	color:#1f7f7b;
+}
+
+a:hover, a:visited:hover{
+	color:#3fcec8;
+}
+
+hr {
+	border-color:#510e0e;
+}
+
+/*#layout {
+	background-color:#e0e0e0;
+	margin:0;
+	padding:0;
+	height:100%;
+}*/
+
+#layout {
+	min-height:100%;
+	/*height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
+	margin: 0 auto -40px;
+	
+}
+
+#content {
+	min-height:80%;
+	height:auto;
+	padding:0px;
+	text-align:left;
+	margin:auto;
+	width:80%;
+	position:relative;
+	top:80px;
+	bottom: 80px;
+	background-color:#FFFFFF;
+	z-index:10;
+}
+
+#text {
+	color:#000000;
+	padding:50px;
+	z-index:5;
+}
+
+
+#menu { 
+	font-size:12pt;
+	margin:0;
+	padding:0;
+	background-color:#333;
+	position:absolute;
+	top:0px;
+	width:100%;
+	height:50px;
+    box-shadow: 2px 2px 2px 2px #888888;
+	z-index:7;
+}
+
+#menu ul {
+	color:#FFFFFF;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+#menu ul li{
+	line-height:50px;
+	text-align: center;
+	vertical-align: middle;
+	width:12%;
+	background:#5a5a5b;
+	position:relative;
+	float:right;
+	padding:0;
+	z-index:2;
+	height:50px;
+	display:block;
+}
+
+
+
+#container #menu ul li:hover, #container #menu ul li.over {
+	background:#00605c;
+	color:#FFFFFF;
+}
+
+#menu li ul {
+display:none;
+width:100%;
+position:absolute;
+top:100%;
+left:0;
+}
+
+#menu li>ul {
+top:auto;
+}
+
+#menu li:hover ul, #menu li.hover ul {
+display:block;
+background-color:#666;
+}
+
+#menu li:hover ul a {
+	color:#999;
+}
+#menu li:hover ul a:hover {
+	display:block;
+	color:#FFFFFF;
+	background-color:#999;
+}
+
+#menu li ul li {
+float:none;
+position:static;
+display:inline;
+}
+
+#menu a{
+	color:#999;
+	display:block;
+}
+
+#menu a:hover{
+	display:block;
+	color:#FFF;
+}
+
+#logo {
+	position:absolute;
+	margin:0;
+	padding:0;
+	width:53%;
+	top:0px;
+	left:0;
+	text-align:left;
+	text-indent:60px;
+	height:50px;
+	overflow:visible;
+	background:url("logo_2.png") no-repeat;
+	background-color:#5a5a5b;
+	background-position:left;
+	z-index:8;
+}
+
+#logo a {
+	width:400px;
+	z-index:-1;
+	display:block;
+	line-height:50px;
+	vertical-align:middle;
+	text-align:left;
+	left:40px;
+	color: rgba(0,0,0,0);
+	font-size:14pt;
+}
+
+#logo a:hover {
+	color: rgba(0,0,0,0);
+}
+
+
+
+
+#disclaimer {
+	z-index:6;
+	vertical-align: middle;
+	line-height:40px;
+	color:#FFFFFF;
+	height:40px;
+	text-align:center;
+	width:100%;
+	bottom:0px;
+	position:absolute;
+	background-color:#333;
+	background-color: rgba(0,0,0,0.7);
+}
+
+
+#push {
+	/*display:block;*/
+	height:50px;
+}
+
+#mapoption {
+	z-index:14;
+	display:block;
+	background-color:#333;
+	background-color: rgba(0,0,0,0.7);
+	position:absolute;
+	color:#FFFFFF;
+	float:right;
+	right:10px;
+	padding:10px;
+	text-align:left;
+	height:auto;
+	list-style-type:None;
+	width:120px;
+	top:25%;
+	box-shadow: 1px 1px 1px 1px #888888;
+}
+
+#map-canvas {
+		position:relative;
+      	width: 100%; 
+        height:100%;
+        padding: 0px
+      }
+	  
+#mask {
+    display: none;
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    z-index: 999;
+}
+
+/* You can customize to your needs  */
+.login-popup {
+	
+	width:300px;
+    display: none;
+    background: #FFFFFF;
+    padding: 10px;
+    border: 2px solid #ddd;
+    float: left;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 99999;
+    box-shadow: 0px 0px 20px #999;
+    /* CSS3 */
+        -moz-box-shadow: 0px 0px 20px #999;
+    /* Firefox */
+        -webkit-box-shadow: 0px 0px 20px #999;
+    /* Safari, Chrome */
+	border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px;
+    /* Firefox */
+        -webkit-border-radius: 3px;
+    /* Safari, Chrome */;
+}
+
+img.btn_close {
+	float:right;
+	right:10px;
+    margin: -28px -28px 0 0;
+}
+
+fieldset {
+    border: none;
+}
+
+form.signin .textbox label {
+    display: block;
+    padding-bottom: 7px;
+}
+
+form.signin .textbox span {
+    display: block;
+}
+
+form.signin p, form.signin span {
+    color:#333;
+    font-size: 11px;
+    line-height: 18px;
+}
+
+form.signin .textbox input {
+    background: #CCC;
+    border-bottom: 1px solid #333;
+    border-left: 1px solid #000;
+    border-right: 1px solid #333;
+    border-top: 1px solid #000;
+    color: #fff;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    padding: 6px 6px 4px;
+    width: 200px;
+}
+
+form.signin input:-moz-placeholder {
+    color: #666;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:8pt;
+}
+
+form.signin input::-webkit-input-placeholder {
+    color: #666;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:8pt;
+}
+
+.button {
+	font-family:Georgia, "Times New Roman", Times, serif;
+    background: -moz-linear-gradient(center top, #f3f3f3, #dddddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#dddddd));
+    background: -o-linear-gradient(top, #f3f3f3, #dddddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f3f3f3', EndColorStr='#dddddd');
+    border-color: #000;
+    border-width: 1px;
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    color: #333;
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px 6px 4px;
+    margin-top: 10px;
+    font: 12px;
+    width: 214px;
+}
+
+.button:hover {
+    background: #ddd;
+}
+
+
+
+
+
+
+
+
+
