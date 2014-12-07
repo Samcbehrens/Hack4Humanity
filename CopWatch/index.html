@@ -6,10 +6,12 @@
 <link rel="stylesheet" type="text/css" title="default" href="stylesheet.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
 <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
- <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
 <script src="jquery.paulund_modal_box.js"></script>
 <script src="firebase.js"></script>
 <script type="text/javascript" src="dropdowns.js"></script>
+<script type="text/javascript" src="login.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
@@ -21,8 +23,8 @@
 	<li><a href="#" class = "outreach">Community Outreach</a>
     <ul>
     <li>
-    <a href="#" class = "newuser">New User</a></li>
-    <a href="#" class = "neworg">New Org</a></li>
+    <a href="#login-box" class="login-window">New User Sign Up</a>
+    <a href="#login-box2" class = "login-window">New Org Sign Up</a></li>
     <a href="#" class = "organizations">Organizations</a></li>
     </li>
     </ul></li>
@@ -30,10 +32,86 @@
 	
 </ul>
 </div>
+  <div id="login-box2" class="login-popup">
+<a href="#" class="close"><img src="close.png" class="btn_close" title="Close Window" alt="Close" /></a>
+  <form method="post" class="signin" action="#">
+        <fieldset class="textbox">
+        <label class="username">
+        <span>Username</span>
+        <input id="username" name="username" value="" type="text" autocomplete="on">
+        </label>
+        <label class="name">
+        <span>Organization Name</span>
+        <input id="name" name="name" value="" type="text" autocomplete="on">
+        </label>
+        <label class="email">
+        <span>Email</span>
+        <input id="email" name="email" value="" type="text" autocomplete="on">
+        </label>
+        <label class="phone">
+        <span>Phone #</span>
+        <input id="phone" name="phone" value="" type="phone">
+        </label>
+        <label class="location">
+        <span>City, State</span>
+        <input id="location" name="location" value="" type="text" autocomplete="on">
+        </label>
+        <label class="facebook">
+        <span>Facebook</span>
+        <input id="facebook" name="facebook" value="" type="facebook">
+        </label>
+        <label class="twitter">
+        <span>Twitter</span>
+        <input id="twitter" name="twitter" value="" type="twitter">
+        </label>
+        <label class="instagram">
+        <span>Instagram</span>
+        <input id="instagram" name="instagram" value="" type="instagram">
+        </label>
+        
+        <button class="submit button" type="button">Sign in</button>
+        <p>
+        </p>        
+        </fieldset>
+  </form>
+</div>
+   <div id="login-box" class="login-popup">
+<a href="#" class="close"><img src="close.png" class="btn_close" title="Close Window" alt="Close" /></a>
+  <form method="post" class="signin" action="#">
+        <fieldset class="textbox">
+        <label class="username">
+        <span>Username</span>
+        <input id="username" name="username" value="" type="text" autocomplete="on">
+        </label>
+        <label class="email">
+        <span>Email</span>
+        <input id="email" name="email" value="" type="text" autocomplete="on">
+        </label>
+        <label class="phone">
+        <span>Phone #</span>
+        <input id="phone" name="phone" value="" type="phone">
+        </label>
+        <label class="facebook">
+        <span>Facebook</span>
+        <input id="facebook" name="facebook" value="" type="facebook">
+        </label>
+        <label class="twitter">
+        <span>Twitter</span>
+        <input id="twitter" name="twitter" value="" type="twitter">
+        </label>
+        <label class="instagram">
+        <span>Instagram</span>
+        <input id="instagram" name="instagram" value="" type="instagram">
+        </label>
+        
+        <button class="submit button" type="button">Sign in</button>
+        <p>
+        </p>        
+        </fieldset>
+  </form>
+</div>
 <div id="layout">	
 
-
-    
 <script type="text/javascript"
         src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
@@ -86,6 +164,7 @@
               filterMap(layer, tableId, map);
         });
         
+         
         
         google.maps.event.addDomListener(document.getElementById('fired'),
             'click', function() {
@@ -257,23 +336,18 @@
 <div id="disclaimer">Disclaimer goes here because why not.</a></div>
 
 </div>
-
-
 <script>
 $('.about').paulund_modal_box({
 		title:'About',
-		description:'The idea of a post-racial America has been steadily dismantled in the recent weeks and as we watch white cop after white cop not indicted for the use unnecessary and brutal violence, many of us are faced with the need to rethink our understanding of American society and the role the government has in all of our lives. Many of the recent events, such as the killing of unarmed black teen, Micheal Brown, have sparked fierce debate about the ways in which the American government administers justice, especially considering the police force. In these times of introspection'
-		
+		description:'Something blablablbalablabla'
 	});
 $('.outreach').paulund_modal_box({
-		title:'You Smell',
-		description:'<div class="tagboard-embed" tgb-slug="policebrutality/201820"></div><script src="https://tagboard.com/public/js/embed.js"></scr' + 'ipt>'
+		title:'Community Outreach',
+		description:''
 	});
 $('.resources').paulund_modal_box({
 		title:'Resources',
-		description:'<p>Understanding the scope of police brutality particularly towards people of color in the United States is the first step towards enacting change. We encourage anyone and everyone who visits our page and makes use of our data visualization to go out and investigate this grave matter themselves and form their own opinions. There are many ways to do this, such as speaking with other members of the community about their own experiences through our tagboard page as well as reading and learning about your own rights to report instances of brutality.</p><p>	As you read through these resources and start to form your own opinions on the issue at hand, it is also important to consider the factors that lead to increased police brutality in general. While there are some cases of unusual and </p><p><i>History of police brutality</i></p><p>In order to fully understand why police brutality so often target people of color, </p>'
-	
-	
+		description:''
 	});
 $('.organizations').paulund_modal_box({
 		title:'Organizations',
@@ -281,13 +355,12 @@ $('.organizations').paulund_modal_box({
 	});
 $(document).ready(function(){
 	$('.neworg').paulund_modal_box();
-	
 });
 $(document).ready(function(){
 	$('.organizations').paulund_modal_box();
 });
 $('.help').paulund_modal_box({
-		title:'FAQ',
+		title:'Help / FAQ',
 		description:''
 	});
 </script>

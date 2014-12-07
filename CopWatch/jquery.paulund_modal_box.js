@@ -40,7 +40,6 @@
 				'-webkit-border-radius':'10px',
 				'background': '#f2f2f2', 
 				'z-index':'50',
-				'overflow':'scroll';
 			});
 			$('.paulund_modal_close').css({
 				'position':'relative',
@@ -67,17 +66,13 @@
 			});
 			$('.paulund_inner_modal_box').css({
 				'background-color':'#fff',
-				'text-align':'justify',
 				'height':'90%',
 				'width':(options.width - 50),
 				'padding':'10px',
-				'padding-right':'50px',
-				'padding-left':'50px',
-				'font-size':'12pt',
 				'margin':'15px',
 				'border-radius':'10px',
 				'-moz-border-radius':'10px',
-				'-webkit-border-radius':'10px',
+				'-webkit-border-radius':'10px'
 			});
 		}
 		
