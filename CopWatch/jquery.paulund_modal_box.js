@@ -62,7 +62,7 @@
 				'background-color':'rgba(0,0,0,0.6)',
 				'height':pageHeight,
 				'width':pageWidth,
-				'z-index':'10'
+				'z-index':'14'
 			});
 			$('.paulund_inner_modal_box').css({
 				'background-color':'#fff',
@@ -72,7 +72,7 @@
 				'margin':'15px',
 				'border-radius':'10px',
 				'-moz-border-radius':'10px',
-				'-webkit-border-radius':'10px'
+				'-webkit-border-radius':'10px',
 			});
 		}
 		
